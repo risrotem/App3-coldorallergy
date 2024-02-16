@@ -51,8 +51,8 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	function probability(){
 		allergypercent = allergy_count * 25
 		coldpercent = cold_count * 25
-		var result = document.getElementByID("result")
-		result.innerHTML = "Probability it is allergies =" + allergypercent + "<br> Probability it is a cold =" + coldpercent
+		var resultText = document.getElementByID("results")
+		resultText.innerHTML = "Probability it is allergies =" + allergypercent + "<br> Probability it is a cold =" + coldpercent
 	}
 	
   </script>
@@ -141,20 +141,20 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 	<div id="content" class="w3-container">
 	<p>Are your symptoms seasonal or chronic?</p>
-	<a href="#result" onclick="allergyAdd();" class="w3-btn w3-black">Seasonal</a>
-	<a href="#result" onclick="coldAdd();" class="w3-btn w3-black">Chronic</a>
+	<a href="#results" onclick="allergyAdd();" class="w3-btn w3-black">Seasonal</a>
+	<a href="#results" onclick="coldAdd();" class="w3-btn w3-black">Chronic</a>
 	</div> <!--I added the onclick to count up the results for an output.-->
 	
 <!--Below is the results page.-->
 </div>
-<div class="page" id="result">
+<div class="page" id="results">
 	<div class="w3-container w3-flat-carrot">
 		<h1>Results</h1>
 	</div>
 	
 	<div id="content" class="w3-container">
-	<p id="result"></p>
-	<button class="w3-button w3-black" onclick="probability()">Get Results</button>
+	<p id="results"></p>
+	<button onclick="probability();" class="w3-btn w3-black">Get Results</button>
 	</div>
 </div>	
 
