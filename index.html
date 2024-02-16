@@ -48,6 +48,10 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
             cold_count = cold_count + 1;	
         }
 
+	function allergyProbability(){
+		allergy_count = (allergy_count/4) * 100;
+	}
+
   </script>
 
 
@@ -143,6 +147,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 <div class="page" id="results">
 	<div class="w3-container w3-flat-carrot">
 		<h1>Results</h1>
+	<button onclick="allergyProbability();" class="w3-button w3-black">Get Results</button>
 	</div>
 
 	</div>
