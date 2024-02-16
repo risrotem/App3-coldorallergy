@@ -50,12 +50,12 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	var allergypercent = 0;
 	
 	function allergyProbability(){
-		alert (Percent chance it is allergies: allergypercent = allergy_count * 25);
+		alert (allergypercent = allergy_count * 25);
 	}
 	var coldpercent = 0;
 	
 	function coldProbability(){
-		alert (Percent chance it is a cold: coldpercent = cold_count * 25);
+		alert (coldpercent = cold_count * 25);
 	}
 
   </script>
@@ -154,9 +154,11 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	<div class="w3-container w3-flat-carrot">
 		<h1>Results</h1>
 	</div>
+	<h2>Click on each button to get your results</h2>
+</div>
 	<p id="results"></p>
-	<button onclick="allergyProbability();" class="w3-button w3-black">Chance it is allergies</button>
-	<button onclick="coldProbability();" class="w3-button w3-black">Chance it is a cold</button>
+	<button onclick="allergyProbability();" class="w3-button w3-black">Percent chance it is allergies</button>
+	<button onclick="coldProbability();" class="w3-button w3-black">Percent chance it is a cold</button>
 	</div>
 </div>	
 
