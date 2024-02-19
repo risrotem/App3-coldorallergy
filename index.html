@@ -7,7 +7,7 @@ THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
  
 Authors in chronological order of contribution:
 Tim Riedel
-Author 2
+Rotem Ris
  
 Further Information:
 http://cns.utexas.edu/fri
@@ -17,17 +17,17 @@ Timothy Riedel
 triedel@utexas.edu
  
 Brief Description of Goal of Code:
-blah, blah, blah,
+The goal of this code is to create an app where the user can answer a short series of questions to find out their chances of having a cold or allergies based on their symptoms.
  
 Known Issues:
-blah, blah, blah, blah
+This app should not be used to diagnose a real medical condition, it is merely a test.
 
 https://www.w3schools.com/w3css/default.asp
 https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-file
 -->
 	
    <head> 
-      <title>Hello World</title>  
+      <title>ColdorAllergy</title>  
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="apple-mobile-web-app-capable" content="yes">
       <link rel="stylesheet" href="w3.css">
@@ -38,7 +38,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 <script>
         var allergy_count = 0;
         var cold_count = 0;
-
+//These set up the variables to be used in the functions below. They are set to 0 originally (initializing the variables).//
 
         function allergyAdd(){
             allergy_count = allergy_count + 1;
@@ -47,14 +47,16 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
         function coldAdd(){
             cold_count = cold_count + 1;	
         }
-
+//The two functions above add 1 to the allergy_count or cold_count variables every time they are run. This is done when the user clicks a button that corresponds with having allergies or a cold.//
+//Each function is called on during each page of the questionnaire depending on the user's answer.//
 	function result(){
 		var allergypercent = (allergy_count/6)*100;
 		var coldpercent = (cold_count/6)*100
 		var result = document.getElementById("results");
 		result.innerHTML = "Probability it is allergies =" + allergypercent + "<br> Probability it is a cold =" + coldpercent;
 	}
-	
+//The function above uses the allergy_count and cold_count variables to calculate the probability that the user has a cold or allergies based on their answers.//
+//The function also changes the content of the HTML on the results page to allow the calculated probabilities to appear when the "Get Results" button is clicked.//
   </script>
 
 
@@ -80,7 +82,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
     z-index: 1;
 }
 </style>
-
+<!--This is the introduction page. It is the first thing the user sees when opening the app.-->
 <body>
 <div id="header" class="w3-container w3-flat-carrot">
 	<h1>Cold or Allergies?</h1>
@@ -95,7 +97,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
  	
 	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
 <!--Below is the first page that a question appears on. Each of the either buttons will cause the user to move to the next page and question-->
-<div class="page" id="one">
+<div class="page" id="one"> <!--New page-->
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 1</h1>
 	</div>
@@ -104,81 +106,82 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
         <p>Are your eyes watery or itchy?</p>  
 	<a href="#two" onclick="allergyAdd();" class="w3-btn w3-black">Yes</a>
 	<a href="#two" onclick="coldAdd();" class="w3-btn w3-black">No</a>
-    	</div> <!--I added the onclick components to start adding up the results-->
+    	</div> <!--I added the onclick components to start adding up the results. When either button is clicked, it calls on either the allergyAdd or coldAdd functions in the JavaScript. Clicking on the buttons also moves the user to the next page.-->
 	
 </div>
 <!--I added another page that includes the second question. Again, no matter what button is clicked, it will lead the user to the next question-->
 
-<div class="page" id="two">
+<div class="page" id="two"> <!--New page-->
 	<div class="w3-container w3-flat-carrot">
 		<h1>Question 2</h1>
 	</div>
 	
 	<div id="content" class="w3-container">
 		<p>Do you have a fever?</p>
-		<a href="#three" onclick="coldAdd();" class="w3-btn w3-black">Yes</a>
-		<a href="#three" onclick="allergyAdd();" class="w3-btn w3-black">No</a>
-	</div> <!--I added the onclick to count up the results for an output.-->
+		<a href="#three" onclick="coldAdd();" class="w3-btn w3-black">Yes</a> <!--Adds 1 to the cold_count variable-->
+		<a href="#three" onclick="allergyAdd();" class="w3-btn w3-black">No</a> <!--Adds 1 to the allergy_add variable-->
+	</div> <!--I added the onclick that calls on the JavaScript functions to count up the results for an output.-->
 
 </div>
-<div class="page" id="three">
+<div class="page" id="three"> <!--New page-->
 	<div class="w3-container w3-flat-carrot">
 		<h1>Question 3</h1>
 	</div>
 
 	<div id="content" class="w3-container">
 		<p>Do you have a sore throat?</p>
-		<a href="#four" onclick="coldAdd();" class="w3-btn w3-black">Yes</a>
-		<a href="#four" onclick="allergyAdd();" class="w3-btn w3-black">No</a>
-	</div> <!--I added the onclick to count up the results for an output.-->
+		<a href="#four" onclick="coldAdd();" class="w3-btn w3-black">Yes</a> <!--Adds 1 to the cold_count variable and moves the user to the next page.-->
+		<a href="#four" onclick="allergyAdd();" class="w3-btn w3-black">No</a> <!--Adds 1 to the allergy_count variable and moves the user to the next page.-->
+	</div> <!--I added the onclick that calls on the JavaScript functions to count up the results for an output.-->
 	
-<!--Below is the final page of questions, but the buttons are labeled "Seasonal" and "Chronic" to match the question. The buttons on this page lead to the results page.-->
 </div>
-<div class="page" id="four">
+<div class="page" id="four"> <!--New page-->
 	<div class="w3-container w3-flat-carrot">
 		<h1>Question 4</h1>
 	</div>
 
 	<div id="content" class="w3-container">
 	<p>Are your symptoms seasonal or chronic?</p>
-	<a href="#five" onclick="allergyAdd();" class="w3-btn w3-black">Seasonal</a>
-	<a href="#five" onclick="coldAdd();" class="w3-btn w3-black">Chronic</a>
-	</div> <!--I added the onclick to count up the results for an output.-->
+	<a href="#five" onclick="allergyAdd();" class="w3-btn w3-black">Seasonal</a> <!--Adds 1 to the allergy_count variable and moves the user to the next page.-->
+	<a href="#five" onclick="coldAdd();" class="w3-btn w3-black">Chronic</a> <!--Adds 1 to the cold_count variable and moves the user to the next page.-->
+	</div> <!--I added the onclick that calls on the JavaScript functions to count up the results for an output.-->
 </div>
-<div class="page" id="five">
+<div class="page" id="five"> <!--New page-->
 	<div class="w3-container w3-flat-carrot">
 		<h1>Question 5</h1>
 	</div>
 
 	<div id="content" class="w3-container">
 	<p>Do you have body aches or pains?</p>
-	<a href="#six" onclick="coldAdd();" class="w3-btn w3-black">Yes</a>
-	<a href="#six" onclick="allergyAdd();" class="w3-btn w3-black">No</a>
-	</div>
+	<a href="#six" onclick="coldAdd();" class="w3-btn w3-black">Yes</a> <!--Adds 1 to the cold_count variable and moves the user to the next page.-->
+	<a href="#six" onclick="allergyAdd();" class="w3-btn w3-black">No</a> <!--Adds 1 to the allergy_count variable and moves the user to the next page.-->
+	</div> <!--I added the onclick that calls on the JavaScript functions to count up the results for an output.-->
 </div>
-<div class="page" id="six">
+</div>
+<div class="page" id="six"> <!--New page-->
 	<div class="w3-container w3-flat-carrot">
 		<h1>Question 6</h1>
 	</div>
 
 	<div id="content" class="w3-container">
 	<p>Is your cough dry?</p>
-	<a href="#results" onclick="allergyAdd();" class="w3-btn w3-black">Yes</a>
-	<a href="#results" onclick="coldAdd();" class="w3-btn w3-black">No</a>
-	</div>
+	<a href="#results" onclick="allergyAdd();" class="w3-btn w3-black">Yes</a> <!--Adds 1 to the allergy_count variable and moves the user to the next page.-->
+	<a href="#results" onclick="coldAdd();" class="w3-btn w3-black">No</a> <!--Adds 1 to the cold_count variable and moves the user to the next page.-->
+	</div> <!--I added the onclick that calls on the JavaScript functions to count up the results for an output.-->
+</div>
 <!--Below is the results page.-->
 </div>
-<div class="page" id="results">
+<div class="page" id="results"> <!--Results page-->
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Results</h1>
 	</div>
 	
 	<div id="content" class="w3-container">
-		<button class="w3-btn w3-black" onclick="result();"> Get Results </button>
+		<button class="w3-btn w3-black" onclick="result();"> Get Results </button> <!--A button for the user to click to receive their results-->
 		<p id="result"></p>
-	</div>
+	</div> <!--When the user clicks on the button, it calls on the JavaScript function "result" that calculates the probability of having a cold or allergies based on the user's answers-->
 </div>	
-
+<!--The footer appears on each page-->
 <footer class="w3-bottom w3-container w3-flat-carrot">
 	<p>DIY!</p>
 </footer>
